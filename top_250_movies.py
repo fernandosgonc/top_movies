@@ -49,7 +49,8 @@ def create_list_based_on_json_keys(movies_list, key_name):
 
     if len(movies_list) > 0:
         for movie in movies_list:
-            value = movie[key_name]
-            aux_list.append(value)
+            if key_name in movie.keys():
+                value = movie[key_name]
+                aux_list.append(value)
 
     return aux_list
