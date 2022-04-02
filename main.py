@@ -1,11 +1,11 @@
 from domain.movie import Movie
-import rest_controllers.top_250_movies_controller
-import service.top_250_movies_service
+from rest_controllers.top_250_movies_controller import Top250MoviesController
+from service.top_250_movies_service import Top250MoviesService
 
-controller = rest_controllers.top_250_movies_controller.Top250MoviesController()
+controller = Top250MoviesController()
 top_movies_json = controller.get_top_movies()
 
-service = service.top_250_movies_service.Top250MoviesService()
+service = Top250MoviesService()
 movies_list_json = service.extract_movies_list_from_json(top_movies_json)
 
 movies_list = []
