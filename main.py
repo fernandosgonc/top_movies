@@ -1,12 +1,20 @@
-from top_250_movies import get_top_movies, get_top_movies_as_dict
-
-# dicionário 'cru' obtido a partir do json retornado da API
-movies_dic = get_top_movies_as_dict()
+from top_250_movies import create_list_based_on_json_keys, extract_movies_list_from_json, get_top_movies
 
 
-# imprimindo cada filme na lista da chave 'items'
-for movie in movies_dic['items']:
-    print(movie)
+top_movies = get_top_movies()
 
-# verificando o tamanho da lista de filmes
-# print(len(movies_dic['items']))
+movies_list = extract_movies_list_from_json(top_movies)
+
+ids = create_list_based_on_json_keys(movies_list, 'id')
+ranks = create_list_based_on_json_keys(movies_list, 'rank')
+titles = create_list_based_on_json_keys(movies_list, 'title')
+full_titles = create_list_based_on_json_keys(movies_list, 'fullTitle')
+years = create_list_based_on_json_keys(movies_list, 'year')
+images = create_list_based_on_json_keys(movies_list, 'image')
+crew_list = create_list_based_on_json_keys(movies_list, 'crew')
+ratings = create_list_based_on_json_keys(movies_list, 'imDbRating')
+rating_counts = create_list_based_on_json_keys(movies_list, 'imDbRatingCount')
+
+
+print(titles)
+print(len(titles))
